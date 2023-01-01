@@ -131,3 +131,6 @@ dmypy.json
 # Pycham
 .idea/
 migrations/
+
+#secrets.json
+secrets.json
