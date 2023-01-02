@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"  />
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body>
+<!--    <p class="tip">북클럽 관련 이미지</p>-->
+    <div class="form sign-in">
+      <h2>로그인</h2>
+        <label>
+          <span>아이디</span>
+          <input type="email" />
+        </label>
+        <label>
+          <span>비밀번호</span>
+          <input type="password" />
+        </label>
+        <button type="button" class="submit">로그인</button>
+        <button type="button" class="submit" href="/booklounge/signup">회원가입</button>
+    </div>
+</body>
+</html>
