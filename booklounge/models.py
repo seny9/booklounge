@@ -1,14 +1,13 @@
 from django.db import models
+from bookclublounge.models import *
 
-class user(models.Model):
-    user_id = models.CharField(max_length=20)
-    user_password = models.CharField(max_length=16)
-    bookclub_list = models.ManyToManyField("bookclub")
+class User(models.Model):
+    email = models.EmailField(max_length=320, unique=True) # 유저 이메일 필드 로컬파트(64자리) + @ + 도메인파트(255자리) = 320
+    nickname = models.CharField(max_length=100) # 유저 닉네임 필드
+    password = models.CharField(max_length=100) # 유저 비밀번호 필드
+    bookclubs = models.ManyToManyField(Bookclub, blank=True) #신청한 북클럽 필드, 다대다 관계
 
-class bookclub(models.Model):
-    bookclub_name = models.CharField(max_length=200) #북클럽 이름
-    user_count = models.IntegerField(default=3) #참가 인원수
-    on_offline = models.IntegerField() # 온오프라인 여부, 온라인 0 오프라인 1
+
 
 
 

@@ -1,26 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 {% load static %}
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8">
     <title>login</title>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"  />
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"  />
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-</head>
-<body>
-<!--    <p class="tip">북클럽 관련 이미지</p>-->
-    <div class="form sign-in">
-      <h2>로그인</h2>
-        <label>
-          <span>아이디</span>
-          <input type="email" />
-        </label>
-        <label>
-          <span>비밀번호</span>
-          <input type="password" />
-        </label>
-        <button type="button" class="submit">로그인</button>
-        <button type="button" class="submit" href="/booklounge/signup">회원가입</button>
-    </div>
-</body>
+  </head>
+  <body id="page-top"class="text-center">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav" style="height: 90px;">
+            <div class="container px-5">
+                <a class="navbar-brand fw-bold" href="/booklounge">BookLounge</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="/bookclublounge">북클럽 라운지</a></li>
+                    </ul>
+                        <button type="button" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0 align-items-center" onclick="location.href='login'">로그인</button>
+                </div>
+            </div>
+        </nav>
+
+    <main class="form-signin container text-center" style="margin-top: 300px";>
+      <form>
+        <img class="mb-4" src="북클럽이미지.jpeg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">로그인</h1>
+
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+
+          <div class="row justify-content-evenly">
+            <div class="col-4">
+              <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
+            </div>
+            <div class="col-4">
+              <button type="button" class="w-100 btn btn-lg btn-primary" onclick="location.href='signup'">회원가입</button>
+            </div>
+          </div>
+      </form>
+    </main>
+  </body>
 </html>
