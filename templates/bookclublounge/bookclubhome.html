@@ -15,50 +15,47 @@
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"  />
        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
     </head>
-    <body>
+    <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
-                        </li>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav" style="height: 90px;">
+            <div class="container px-5">
+                <a class="navbar-brand fw-bold" href="#page-top"><span style="font-size: 70%;">Bookclub</span>Lounge</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="/booklounge">북 라운지</a></li>
                     </ul>
+<!--                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">-->
+                        <button type="button" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0 align-items-center" onclick="location.href='login'">로그인</button>
                 </div>
             </div>
         </nav>
-        <!-- Related items section-->
+        <!-- 북클럽 리스트-->
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">북클럽 리스트</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    {% if content_list %}
-                        {% for content in content_list %}
+                    {% if bookclub_list %}
+                        {% for bookclub in bookclub_list %}
                             <div class="col mb-5">
                                 <div class="card h-100">
-                                    <!-- book image-->
+                                    <!-- 북클럽 썸네일-->
                                     <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                                    <!-- Product details-->
+                                    <!-- 북클럽 -->
                                     <div class="card-body p-4">
                                         <div class="text-center">
-                                            <!-- Product name-->
-                                            <h5 class="fw-bolder"><a href="/mysite/{{ content.id }}/">{{ content.title }}</a></h5>
-                                            <!-- Product price-->
-                                            {{ content.content}}<br>온라인
+                                            <!-- 북클럽 이름 -->
+                                            <h5 class="fw-bolder"><a href="/mysite/{{ bookclub.id }}/">{{ bookclub.name }}</a></h5>
+                                            <!-- 북클럽 상세정보 -->
+                                            {{ bookclub.description}}<br>
+                                            참여 {{ bookclub.max_participate}}/ {{ bookclub.current_participate }}<br>
+                                            <b>{{ bookclub.get_on_offline_display}}</b> 참여<br>
                                         </div>
                                     </div>
-                                    <!-- Product actions-->
+                                    <!-- 참여하기 버튼 -->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                         <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">참여하기</a></div>
                                     </div>
@@ -66,7 +63,7 @@
                             </div>
                     {% endfor %}
                        {% else %}
-                        <p>content 가 없습니다.</p>
+                        <p>현재 개설된 북클럽이 없습니다.</p>
                        {% endif %}
 
 

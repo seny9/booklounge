@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Bookclub(models.Model):
     name = models.CharField(max_length=200) # 북클럽 이름 필드
@@ -12,4 +13,7 @@ class Bookclub(models.Model):
     ONOFFLINE_CHOICES = (('ON', '온라인'),
                          ('OFF', '오프라인'))
     on_offline = models.CharField(max_length=3, choices=ONOFFLINE_CHOICES) # 북클럽 온오프라인 여부 필드, choice기능 사용
+
+    pub_date = models.DateTimeField('date published')
+
 
