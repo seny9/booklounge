@@ -23,6 +23,7 @@
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         <li class="nav-item"><a class="nav-link me-lg-3" href="/bookclublounge">북클럽 라운지</a></li>
                     </ul>
+                        {if
                         <button type="button" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0 align-items-center" onclick="location.href='login'">로그인</button>
                 </div>
             </div>
@@ -30,7 +31,7 @@
 
     <main class="form-signin container text-center" style="margin-top: 300px";>
       <form>
-        <img class="mb-4" src="북클럽이미지.jpeg" alt="" width="72" height="57">
+        <img class="mb-4" src="{% static 'images/book.png' %}" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
         <div class="form-floating">
@@ -44,7 +45,7 @@
 
           <div class="row justify-content-evenly">
             <div class="col-4">
-              <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
+              <button class="w-100 btn btn-lg btn-primary" type="submit" href="">로그인</button>
             </div>
             <div class="col-4">
               <button type="button" class="w-100 btn btn-lg btn-primary" onclick="location.href='signup'">회원가입</button>

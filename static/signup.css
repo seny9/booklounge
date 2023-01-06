@@ -26,7 +26,15 @@ body {
   border-bottom-left-radius: 0;
 }
 
+.form-signin input[type="nickname"] {
+  margin-bottom: -1px;
+}
+
 .form-signin input[type="password"] {
+  margin-bottom: -1px;
+}
+
+.form-signin input[type="passwordconfirm"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

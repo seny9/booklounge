@@ -18,8 +18,14 @@ def login(request):
 
 
 def signup(request):
+    if request.method == 'POST': #요청이 post인 경우
+        form = signupForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+            form = signupForm() #post요청이 아닌 경우 단순 폼 출력
 
-    return render(request, 'booklounge/signup.html')
+    return render(request, 'booklounge/signup.html', {'form': form})
 
 
 def my(request):

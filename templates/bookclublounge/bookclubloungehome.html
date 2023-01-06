@@ -6,15 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Item - Start Bootstrap Template</title>
+        <title>북클럽 라운지</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"  />
-       <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}"/>
     </head>
+    <style>
+        .des {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 120px;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
+    </style>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav" style="height: 90px;">
@@ -43,21 +53,23 @@
                             <div class="col mb-5">
                                 <div class="card h-100">
                                     <!-- 북클럽 썸네일-->
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                    <img class="card-img-top" src="{% static 'images/book.png' %}" alt="..." />
                                     <!-- 북클럽 -->
                                     <div class="card-body p-4">
                                         <div class="text-center">
                                             <!-- 북클럽 이름 -->
-                                            <h5 class="fw-bolder"><a href="/mysite/{{ bookclub.id }}/">{{ bookclub.name }}</a></h5>
-                                            <!-- 북클럽 상세정보 -->
-                                            {{ bookclub.description}}<br>
+                                            <h5 class="fw-bolder">{{ bookclub.name }}</h5>
+                                            <!-- 북클럽 설명 -->
+                                            <div class="des">{{ bookclub.description}}<br></div>
+                                            <!-- 최대 참여인원/현재 참여인원 -->
                                             참여 {{ bookclub.max_participate}}/ {{ bookclub.current_participate }}<br>
+                                            <!-- 오프라인, 온라인 여부 -->
                                             <b>{{ bookclub.get_on_offline_display}}</b> 참여<br>
                                         </div>
                                     </div>
                                     <!-- 참여하기 버튼 -->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">참여하기</a></div>
+                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/bookclublounge/bookclub/{{ bookclub.name }}">참여하기</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -70,9 +82,5 @@
                 </div>
             </div>
         </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
-        </footer>
     </body>
 </html>

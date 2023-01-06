@@ -7,7 +7,9 @@ class Bookclub(models.Model):
 
     #초이스 선택옵션 추가, 인원수 3명부터 10명까지 가능
     MAXUSER_CHOICES = zip( range(3,11), range(3,11) )
-    user_max = models.IntegerField(choices=MAXUSER_CHOICES) # 북클럽 참가 인원수 필드, choice기능 사용
+    max_participate = models.IntegerField(choices=MAXUSER_CHOICES) # 북클럽 최대 참여인원 필드, choice기능 사용
+
+    current_participate = models.IntegerField() # 북클럽 현재 참여인원 필드
 
     #초이스 선택옵션 추가, ON -> 온라인 북클럽, OFF ->오프라인 북클럽
     ONOFFLINE_CHOICES = (('ON', '온라인'),
