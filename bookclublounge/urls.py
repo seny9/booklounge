@@ -4,6 +4,7 @@ from .import views
 
 urlpatterns=[
     path('', views.bookclubhome),
-    path('bookclub/<str:name>', views.showBookclub),
+    path('login/', views.login),
+    path('bookclub/<str:name>', views.showBookclub, name='showdetail'),
 
 ]

@@ -10,5 +10,15 @@ def bookclubhome(request):
 
 def showBookclub(request, name):
     if name is not None:
-        bookclub = Bookclub.objects.get(name=name)
+        bookclub = get_object_or_404(Bookclub, name=name)
         return render(request, 'bookclublounge/bookclub.html', {'bookclub': bookclub})
+
+def login(request):
+    if request.method == 'POST': #요청이 post인 경우
+        form = userForm(request.POST) #요청 데이터를 userForm객체에 넣는다
+        if form.is_valid(): #폼의 데이터가 유효하다면
+            form.save() #폼의 데이터를 db의 필드별로 저장
+    else:
+            form = userForm() #post요청이 아닌 경우 단순 폼 출력
+
+    return render(request, 'booklounge/login.html', {'form': form})

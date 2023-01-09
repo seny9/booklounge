@@ -1,0 +1,32 @@
+{% extends 'base.html' %} <!-- 헤더부분 -->
+{% load static %}
+{% block content %}
+        <!-- 회원가입 폼 -->
+    <main class="form-signin container text-center" style="margin-top: 300px";>
+      <form>
+        <img class="mb-4" src="{% static 'images/book.png' %}" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">회원가입</h1>
+
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
+          <label for="floatingInputEmail">이메일</label>
+        </div>
+        <div class="form-floating">
+          <input type="nickname" class="form-control" id="floatingInputNickname" placeholder="nickname">
+          <label for="floatingInputNickname">닉네임</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">비밀번호</label>
+        </div>
+        <div class="form-floating">
+          <input type="passwordconfirm" class="form-control" id="floatingPasswordConfirm" placeholder="Password confirm">
+          <label for="floatingPasswordConfirm">비밀번호 확인</label>
+        </div>
+<!--        <div class="col-4">-->
+            <!--북라운지에서 회원가입하는 경우, 북클럽라운지에서 회원가입 하는 경우 나누어서 로직짜야함 -->
+          <button type="button" class="w-100 btn btn-lg btn-primary" style="margin-bottom:113px;" onclick="location.href='#'">회원가입</button>
+<!--        </div>-->
+      </form>
+    </main>
+{% endblock %}
