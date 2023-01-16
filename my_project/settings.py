@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'booklounge',
     'bookclublounge',
-    'accounts.apps.AccountsConfig',
+    'accounts',
+    # 'accounts.apps.AccountsConfig',
 
 
 ]
@@ -149,5 +150,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #로그인, 로그아웃 시 이동할 url 설정
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/booklounge'
+LOGOUT_REDIRECT_URL = '/booklounge'
+
+#커스텀 유저모델을 사용하기 위한 AbstracUser, 새로운 유저모델 등록
+AUTH_USER_MODEL = 'accounts.User'

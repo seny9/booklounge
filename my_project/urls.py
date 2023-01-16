@@ -7,7 +7,6 @@ urlpatterns = [
     path('booklounge/', include('booklounge.urls')),
     path('bookclublounge/', include('bookclublounge.urls')),
     path('accounts/', include('accounts.urls')),
-
-
+    # path('accounts/', include('django.contrib.auth.urls')),
 
 ]

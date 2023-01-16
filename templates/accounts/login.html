@@ -1,28 +1,29 @@
-    {% extends 'base.html' %} <!-- 헤더부분 -->
+{% extends 'base.html' %} <!-- 헤더부분 -->
     {% load static %}
     {% block content %}
     <main class="form-signin container text-center" style="margin-top: 300px";>
-      <form>
+      <form method="post" action="{% url 'accounts:login' %}">
+          {% csrf_token %}
         <img class="mb-4" src="{% static 'images/book.png' %}" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
-
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">이메일</label>
+          <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+          {{ form.username.label_tag }}
         </div>
         <div class="form-floating">
           <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">비밀번호</label>
+          {{ form.password.label_tag }}
         </div>
-
-          <div class="row justify-content-evenly" style="margin-bottom: 229px;">
+          <!-- 폼 오류 출력 html -->
+          {% include "form_errors.html" %}
+        <div class="row justify-content-evenly" style="margin-top: 20px; margin-bottom: 229px;">
             <div class="col-4">
-              <button class="w-100 btn btn-lg btn-primary" type="submit" href="">로그인</button>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
             </div>
             <div class="col-4">
-              <button type="button" class="w-100 btn btn-lg btn-primary" onclick="location.href='signup'">회원가입</button>
+              <a type="button" class="w-100 btn btn-lg btn-primary" href="{% url 'accounts:signup' %}">회원가입</a>
             </div>
-          </div>
+        </div>
       </form>
     </main>
 {% endblock %}
